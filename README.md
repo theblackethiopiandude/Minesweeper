@@ -1,4 +1,4 @@
-#Minesweeper
+## Minesweeper
 
 Welcome to the Java Swing Habeshan Minesweeper project! 
 
