@@ -22,9 +22,7 @@ This project is a unique and culturally inspired version of the classic Mineswee
 
 1. **Prerequisites:** Ensure you have Java installed on your system.
 
-2. **Clone the Repository:** Use the following command to clone the project:
-
-git clone https://github.com/theblackethiopiandude/Minesweeper.git
+2. **Clone the Repository:** Use the following command to clone the project: git clone https://github.com/theblackethiopiandude/Minesweeper.git
 
 3. **Compile and Run:** Navigate to the project directory and execute the following commands:
 
