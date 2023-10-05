@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
+    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Face and Time Added">
+      <change afterPath="$PROJECT_DIR$/assets/images/HAPPY_FACE.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/NORMAL_FACE.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/SAD_FACE.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/TIME_ICON.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/BombsPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/FlagPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/MovesPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/TimePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UiComponents/TextPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UiComponents/FacePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/FacePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +37,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2WIfgQSDDZ44yQL5sP0wHIjto2u" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -62,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696425127902</updated>
-      <workItem from="1696425130114" duration="3053000" />
+      <workItem from="1696425130114" duration="13672000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1696425742947</created>
@@ -71,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696425742947</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Game Frame initialized">
+      <created>1696434403616</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696434403616</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,7 +108,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="Game Frame initialized" />
+    <MESSAGE value="Face and Time Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Face and Time Added" />
   </component>
 </project>

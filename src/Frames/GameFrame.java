@@ -1,5 +1,9 @@
 package Frames;
 
+import Panels.FlagPanel;
+import Panels.TimePanel;
+import UiComponents.FacePanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +18,17 @@ public class GameFrame extends JFrame {
         JPanel gamePanel = new JPanel(null);
         gamePanel.setBackground(BACKGROUND_COLOR);
         gamePanel.setPreferredSize(SCREEN_SIZE);
+
+        FacePanel facePanel = new FacePanel();
+        TimePanel timePanel = new TimePanel(new JLabel("000"));
+        FlagPanel flagPanel = new FlagPanel(new JLabel("10132"));
+        timePanel.getTimeLabel().setText("Eyosi");
+        flagPanel.getFlagLabel().setText("15");
+
+
+        gamePanel.add(facePanel);
+        gamePanel.add(timePanel);
+        gamePanel.add(flagPanel);
 
         this.add(gamePanel);
         this.pack();
