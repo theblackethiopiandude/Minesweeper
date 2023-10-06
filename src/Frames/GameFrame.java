@@ -1,6 +1,8 @@
 package Frames;
 
+import Panels.BombsPanel;
 import Panels.FlagPanel;
+import Panels.MovesPanel;
 import Panels.TimePanel;
 import UiComponents.FacePanel;
 
@@ -9,6 +11,7 @@ import java.awt.*;
 
 public class GameFrame extends JFrame {
     public GameFrame(){
+        this.setIconImage(new ImageIcon("assets/images/MINESWEEPER.PNG").getImage());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
 
@@ -21,14 +24,20 @@ public class GameFrame extends JFrame {
 
         FacePanel facePanel = new FacePanel();
         TimePanel timePanel = new TimePanel(new JLabel("000"));
-        FlagPanel flagPanel = new FlagPanel(new JLabel("10132"));
-        timePanel.getTimeLabel().setText("Eyosi");
-        flagPanel.getFlagLabel().setText("15");
+        FlagPanel flagPanel = new FlagPanel(new JLabel("25"));
+        MovesPanel movesPanel = new MovesPanel(new JLabel("10"));
+        BombsPanel bombsPanel = new BombsPanel(new JLabel("0"));
 
+        timePanel.getLabel().setText("0:32");
+        bombsPanel.getLabel().setText(movesPanel.getLabel().getText());
+        bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
+        facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
 
         gamePanel.add(facePanel);
         gamePanel.add(timePanel);
         gamePanel.add(flagPanel);
+        gamePanel.add(movesPanel);
+        gamePanel.add(bombsPanel);
 
         this.add(gamePanel);
         this.pack();
