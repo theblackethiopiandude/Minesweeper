@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Face, Time and Flag Panel Added">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_11_23_PM_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/FLAG_ICON.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/MINESWEEPER.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UiComponents/ImagePanel.java" afterDir="false" />
+    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Face, Time and Flag Panel Refactored, Moves and Bombs Added.">
+      <change afterPath="$PROJECT_DIR$/src/GameComponents/Clock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameComponents/GameDifficulty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UiComponents/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panels/BombsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panels/BombsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panels/FlagPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panels/FlagPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panels/MovesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panels/MovesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panels/TimePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panels/TimePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiComponents/FacePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/FacePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiComponents/TextPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/TextPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696425127902</updated>
-      <workItem from="1696425130114" duration="31337000" />
+      <workItem from="1696425130114" duration="43523000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1696425742947</created>
@@ -99,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696537334850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Face, Time and Flag Panel Refactored, Moves and Bombs Added.">
+      <created>1696604750967</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696604750967</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +123,7 @@
     <MESSAGE value="Game Frame initialized" />
     <MESSAGE value="Face and Time Added" />
     <MESSAGE value="Face, Time and Flag Panel Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Face, Time and Flag Panel Added" />
+    <MESSAGE value="Face, Time and Flag Panel Refactored, Moves and Bombs Added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Face, Time and Flag Panel Refactored, Moves and Bombs Added." />
   </component>
 </project>

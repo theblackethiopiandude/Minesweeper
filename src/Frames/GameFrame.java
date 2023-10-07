@@ -1,5 +1,7 @@
 package Frames;
 
+import GameComponents.GameBoard;
+import GameComponents.GameDifficulty;
 import Panels.BombsPanel;
 import Panels.FlagPanel;
 import Panels.MovesPanel;
@@ -28,7 +30,9 @@ public class GameFrame extends JFrame {
         MovesPanel movesPanel = new MovesPanel(new JLabel("10"));
         BombsPanel bombsPanel = new BombsPanel(new JLabel("0"));
 
-        timePanel.getLabel().setText("0:32");
+        GameBoard gameBoard = new GameBoard(GameDifficulty.EASY);
+
+//        timePanel.getLabel().setText("0:32");
         bombsPanel.getLabel().setText(movesPanel.getLabel().getText());
         bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
         facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
@@ -38,6 +42,8 @@ public class GameFrame extends JFrame {
         gamePanel.add(flagPanel);
         gamePanel.add(movesPanel);
         gamePanel.add(bombsPanel);
+
+        gamePanel.add(gameBoard);
 
         this.add(gamePanel);
         this.pack();
