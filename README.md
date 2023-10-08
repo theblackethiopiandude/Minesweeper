@@ -37,5 +37,6 @@ You can customize the game by modifying the settings.
 
 - Special thanks to the Habeshan culture for inspiring this project.
 - Hat tip to the Java Swing community for their invaluable resources.
+- [@ablixM](https://github.com/ablixM) for the design
 
 Enjoy the game and have a great time exploring the Habeshan Minesweeper world!
