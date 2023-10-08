@@ -24,13 +24,14 @@ public class GameFrame extends JFrame {
         gamePanel.setBackground(BACKGROUND_COLOR);
         gamePanel.setPreferredSize(SCREEN_SIZE);
 
+
         FacePanel facePanel = new FacePanel();
         TimePanel timePanel = new TimePanel(new JLabel("000"));
         FlagPanel flagPanel = new FlagPanel(new JLabel("25"));
         MovesPanel movesPanel = new MovesPanel(new JLabel("10"));
         BombsPanel bombsPanel = new BombsPanel(new JLabel("0"));
 
-        GameBoard gameBoard = new GameBoard(GameDifficulty.EASY);
+        GameBoard gameBoard = new GameBoard(GameDifficulty.HARD);
 
 //        timePanel.getLabel().setText("0:32");
         bombsPanel.getLabel().setText(movesPanel.getLabel().getText());

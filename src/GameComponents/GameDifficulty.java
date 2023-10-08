@@ -14,22 +14,22 @@ public class GameDifficulty {
             BOARD_SIZE = new Dimension(400, 320);
             BOARD_LOCATION = new Point(57, 69);
             TILE_SIZE = new Dimension(40, 40);
-            ROW = 10;
-            COLUMN = 8;
+            ROW = 8;
+            COLUMN = 10;
             NUMBER_OF_BOMB = 10;
         } else if (DIFFICULTY == MEDIUM) {
             BOARD_SIZE = new Dimension(450, 350);
             BOARD_LOCATION = new Point(32, 54);
             TILE_SIZE = new Dimension(25, 25);
-            ROW = 18;
-            COLUMN = 14;
+            ROW = 14;
+            COLUMN = 18;
             NUMBER_OF_BOMB = 40;
         } else if (DIFFICULTY == HARD) {
-            BOARD_SIZE = new Dimension(469, 391);
+            BOARD_SIZE = new Dimension(480, 400);
             BOARD_LOCATION = new Point(22, 33);
-            TILE_SIZE = new Dimension(19, 19);
-            ROW = 24;
-            COLUMN = 20;
+            TILE_SIZE = new Dimension(20, 20);
+            ROW = 20;
+            COLUMN = 24;
             NUMBER_OF_BOMB = 99;
         }else {
             BOARD_SIZE = null;
