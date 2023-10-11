@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -18,7 +19,8 @@ public class GameBoard extends JPanel implements MouseListener {
     private final Set<Point> BOMB_LOCATION, REAVELD, FLAGGED;
     private final TopTile [][]topTiles;
     private final BottomTile [][]bottomTiles;
-
+//    private final JPanel [][] Container;
+    private boolean FIRST_CLICK = true;
     public GameBoard(int difficulty){
         GameDifficulty gameDifficulty = new GameDifficulty(difficulty);
         BOARD_SIZE = gameDifficulty.BOARD_SIZE;
@@ -38,6 +40,15 @@ public class GameBoard extends JPanel implements MouseListener {
         topTiles = new TopTile[ROW][COLUMN];
         bottomTiles = new BottomTile[ROW][COLUMN];
 
+//        Container = new JPanel[ROW][COLUMN];
+//
+//        for (int row = 0; row < ROW; row++) {
+//            for (int column = 0; column < COLUMN; column++) {
+//                Container[row][column] = new JPanel(new BorderLayout());
+//                this.add(Container[row][column]);
+//            }
+//        }
+
         for (int row = 0; row < ROW; row++){
             for (int column = 0; column < COLUMN; column++){
                 BottomTile tile;
@@ -54,8 +65,9 @@ public class GameBoard extends JPanel implements MouseListener {
                         tile = new BottomTile(BottomTile.LIGHTER_SHADE, row, column, difficulty);
                     }
                 }
+//                tile.setLayout(new BorderLayout());
                 bottomTiles[row][column] = tile;
-                this.add(tile);
+//                this.add(tile);
             }
         }
         for (int row = 0; row < ROW; row++){
@@ -75,15 +87,110 @@ public class GameBoard extends JPanel implements MouseListener {
                     }
                 }
                 topTiles[row][column] = tile;
+                tile.setLayout(new BorderLayout());
                 tile.addMouseListener(this);
-//                this.add(tile);
+//                bottomTiles[row][column].add(tile, BorderLayout.CENTER);
+                this.add(tile);
+//                Container[row][column].add(tile);
             }
         }
 
-        placeBomb();
+//    generateBomb();
     }
+    private Point[] getAdjacent(Point location){ // gets adjacent location to make the first click safe
+        ArrayList<Point> adjacentLocation = new ArrayList<>();
+        final int FIRST_ROW = 0;
+        final int LAST_ROW = ROW;
+        final int FIRST_COLUMN = 0;
+        final int LAST_COLUMN = COLUMN;
 
-    private void placeBomb(){
+        final int CURRENT_ROW = location.x;
+        int PREVIOUS_ROW = CURRENT_ROW - 1;
+        int NEXT_ROW = CURRENT_ROW + 1;
+
+        if (PREVIOUS_ROW < 0 ){
+            PREVIOUS_ROW = CURRENT_ROW;
+        }else if (NEXT_ROW > LAST_ROW){
+            NEXT_ROW = CURRENT_ROW;
+        }
+
+
+        final int CURRENT_COLUMN = location.y;
+        int PREVIOUS_COLUMN = CURRENT_COLUMN - 1;
+        int NEXT_COLUMN = CURRENT_COLUMN + 1;
+
+        if (PREVIOUS_COLUMN < 0 ){
+            PREVIOUS_COLUMN = CURRENT_COLUMN;
+        }else if (NEXT_COLUMN > LAST_COLUMN){
+            NEXT_COLUMN = CURRENT_COLUMN;
+        }
+
+        if (CURRENT_ROW == FIRST_ROW && CURRENT_COLUMN == FIRST_COLUMN){ // TOP-LEFT CORNER
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, NEXT_COLUMN));
+
+        } else if (CURRENT_ROW == FIRST_ROW && CURRENT_COLUMN == LAST_COLUMN) { // TOP-RIGHT CORNER
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+
+        } else if (CURRENT_ROW == LAST_ROW && CURRENT_COLUMN == FIRST_COLUMN) { // BOTTOM-LEFT CORNER
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, NEXT_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+
+        } else if (CURRENT_ROW == LAST_ROW && CURRENT_COLUMN == LAST_COLUMN) { // BOTTOM-RIGHT CORNER
+            adjacentLocation.add(new Point(PREVIOUS_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+
+        } else if (CURRENT_COLUMN == FIRST_COLUMN) { // LEFT-SIDE
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+
+            adjacentLocation.add(new Point(PREVIOUS_ROW, NEXT_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, NEXT_COLUMN));
+
+        } else if (CURRENT_COLUMN == LAST_COLUMN) { // RIGHT-SIDE
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+
+            adjacentLocation.add(new Point(PREVIOUS_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, PREVIOUS_COLUMN));
+        }else if (CURRENT_ROW == FIRST_ROW){ // TOP-PART
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+
+            adjacentLocation.add(new Point(NEXT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, NEXT_COLUMN));
+        } else if (CURRENT_ROW == LAST_ROW) { // BOTTOM-PART
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+
+            adjacentLocation.add(new Point(PREVIOUS_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, NEXT_COLUMN));
+        }else {
+            adjacentLocation.add(new Point(PREVIOUS_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(PREVIOUS_ROW, NEXT_COLUMN));
+
+            adjacentLocation.add(new Point(CURRENT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(CURRENT_ROW, NEXT_COLUMN));
+
+            adjacentLocation.add(new Point(NEXT_ROW, PREVIOUS_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, CURRENT_COLUMN));
+            adjacentLocation.add(new Point(NEXT_ROW, NEXT_COLUMN));
+
+        }
+        adjacentLocation.add(new Point(CURRENT_ROW, CURRENT_COLUMN));
+        return adjacentLocation.toArray(new Point[adjacentLocation.size()]);
+    }
+    private void generateBomb(Point[] nonBombLocation){
         for (int i = 0; i<NUMBER_OF_BOMB; i++){
             int row = new Random().nextInt(ROW);
             int column = new Random().nextInt(COLUMN);
@@ -92,6 +199,17 @@ public class GameBoard extends JPanel implements MouseListener {
             else
                 --i;
         }
+        for (int i = 0; i < nonBombLocation.length; i++){
+            if (BOMB_LOCATION.contains(nonBombLocation[i])){
+                BOMB_LOCATION.remove(nonBombLocation[i]);
+                BOMB_LOCATION.add(new Point(new Random().nextInt(ROW), new Random().nextInt(COLUMN)));
+                --i;
+            }
+        }
+
+        placeBomb();
+    }
+    private void placeBomb(){
         for (final var location: BOMB_LOCATION){
             bottomTiles[location.x][location.y].setBomb();
             bottomTiles[location.x][location.y].incrementAdjacent(bottomTiles);
@@ -110,7 +228,14 @@ public class GameBoard extends JPanel implements MouseListener {
                 if (e.getSource() == topTiles[row][column]){
                     if (e.getButton() == MouseEvent.BUTTON1){
                         if (!topTiles[row][column].isFlagged()){
-                            topTiles[row][column].setVisible(false);
+                            if (FIRST_CLICK){
+                                FIRST_CLICK = false;
+                                System.out.println("First Click Done");
+                                generateBomb(getAdjacent(new Point(row, column)));
+                            }
+//                            topTiles[row][column].setVisible(false);
+//                            Container[row][column].add(bottomTiles[row][column]);
+                            topTiles[row][column].released(topTiles, bottomTiles);
                             REAVELD.add(new Point(row, column));
                         }
                     } else if (e.getButton() == MouseEvent.BUTTON3) {
@@ -142,7 +267,7 @@ public class GameBoard extends JPanel implements MouseListener {
         for (int row = 0; row < ROW; row++){
             for (int column = 0; column < COLUMN; column++){
                 if (e.getSource() == topTiles[row][column]){
-                    topTiles[row][column].setShade(topTiles[row][column].getShade().brighter());
+                    topTiles[row][column].refreshShade();
                     break;
                 }
             }
@@ -154,7 +279,7 @@ public class GameBoard extends JPanel implements MouseListener {
         for (int row = 0; row < ROW; row++){
             for (int column = 0; column < COLUMN; column++){
                 if (e.getSource() == topTiles[row][column]){
-                    topTiles[row][column].setShade(topTiles[row][column].getShade().darker());
+                    topTiles[row][column].refreshShade();
                     break;
                 }
             }

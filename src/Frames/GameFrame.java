@@ -31,7 +31,7 @@ public class GameFrame extends JFrame {
         MovesPanel movesPanel = new MovesPanel(new JLabel("10"));
         BombsPanel bombsPanel = new BombsPanel(new JLabel("0"));
 
-        GameBoard gameBoard = new GameBoard(GameDifficulty.HARD);
+        GameBoard gameBoard = new GameBoard(GameDifficulty.EASY);
 
 //        timePanel.getLabel().setText("0:32");
         bombsPanel.getLabel().setText(movesPanel.getLabel().getText());

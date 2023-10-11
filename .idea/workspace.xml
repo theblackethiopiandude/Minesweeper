@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Timer fully functional and Game Board half done">
-      <change afterPath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" afterDir="false" />
+    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Tile Done fully and Bombs Placed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameComponents/GameDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameComponents/GameDifficulty.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiComponents/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/TopTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UiComponents/TopTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/TopTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Frames/GameFrame.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GameComponents/GameBoard.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UiComponents/BottomTile.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UiComponents/FacePanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UiComponents/ImagePanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/UiComponents/TopTile.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696425127902</updated>
-      <workItem from="1696425130114" duration="64836000" />
+      <workItem from="1696425130114" duration="83766000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1696425742947</created>
@@ -106,7 +113,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696705331015</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tile Done fully and Bombs Placed">
+      <created>1696799694189</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696799694189</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Tile Done fully and Bombs Placed">
+      <created>1696799905649</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696799905649</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +152,47 @@
     <MESSAGE value="Face, Time and Flag Panel Added" />
     <MESSAGE value="Face, Time and Flag Panel Refactored, Moves and Bombs Added." />
     <MESSAGE value="Timer fully functional and Game Board half done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Timer fully functional and Game Board half done" />
+    <MESSAGE value="Tile Done fully and Bombs Placed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tile Done fully and Bombs Placed" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>98</line>
+          <properties class="UiComponents.TopTile" method="revealAdjacent">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>99</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

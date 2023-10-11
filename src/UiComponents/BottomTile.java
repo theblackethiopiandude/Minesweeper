@@ -8,6 +8,7 @@ import java.awt.*;
 public class BottomTile extends JPanel {
     public final static Color LIGHTER_SHADE = new Color(0xBF7B54);
     public final static Color DARKER_SHADE = new Color(0x8C5230);
+    private final static Color BOMB_BACKGROUND = new Color(0xA61F12);
 
     private boolean EMPTY = true, BOMB = false;
     private Color SHADE;
@@ -89,8 +90,9 @@ public class BottomTile extends JPanel {
 
     public void setBomb() {
         this.BOMB = true;
+        this.EMPTY = false;
         NUMBER_LABEL.setVisible(false);
-        SHADE = new Color(0xA61F12);
+        SHADE = BOMB_BACKGROUND;
         repaint();
     }
     public void incrementAdjacent(BottomTile[][] bottomTiles){
@@ -193,5 +195,7 @@ public class BottomTile extends JPanel {
         if (BOMB){
             graphics2D.drawImage(BOMB_ICON.getImage(), BOMB_LOCATION.x, BOMB_LOCATION.y, null);
         }
+//        super.paintComponent(graphics);
+
     }
 }
