@@ -5,9 +5,7 @@ import GameComponents.GameDifficulty;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Stack;
 
 public class TopTile extends JPanel {
     public final static Color LIGHTER_SHADE = new Color(0x73412F);
@@ -30,15 +28,6 @@ public class TopTile extends JPanel {
 
         SHADE_MAP.put(LIGHTER_SHADE, LIGHTER_HOVER_SHADE);
         SHADE_MAP.put(LIGHTER_HOVER_SHADE, LIGHTER_SHADE);
-    }
-    public static boolean isComponentAdded(Container container, Component componentToCheck) {
-        Component[] components = container.getComponents();
-        for (Component component : components) {
-            if (component == componentToCheck) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public TopTile(Color shade, int row, int column, int difficulty) {
@@ -76,34 +65,14 @@ public class TopTile extends JPanel {
         }
         this.setPreferredSize(TILE_SIZE);
     }
-//    private void revealAdjacent(Point[] adjacentLocations, TopTile[][] topTiles, BottomTile[][] bottomTiles) {
-//        Stack<Point> stack = new Stack<>();
-//        stack.addAll(Arrays.asList(adjacentLocations));
-//
-//        while (!stack.isEmpty()) {
-//            Point location = stack.pop();
-//            int x = location.x;
-//            int y = location.y;
-//
-//            if (!bottomTiles[x][y].isBOMB()) {
-//                topTiles[x][y].add(bottomTiles[x][y], BorderLayout.CENTER);
-//
-//                if (bottomTiles[x][y].isEmpty()) {
-//                    Point[] adjacent = topTiles[x][y].getAdjacent();
-//                    for (Point adjLocation : adjacent) {
-//                        stack.push(adjLocation);
-//                    }
-//                }
-//            }
-//        }
-//    }
-    private void revealAdjacent(Point [] adjacentLocations, TopTile[][] topTiles, BottomTile [][] bottomTiles){
+    private void revealAdjacent(ArrayList<Point> adjacentLocations, TopTile[][] topTiles, BottomTile [][] bottomTiles){
         for (final var location: adjacentLocations){
-            if (isComponentAdded(topTiles[location.x][location.y], bottomTiles[location.x][location.y]))
+            if (topTiles[location.x][location.y].isReleased()) // topTiles[location.x][location.y], bottomTiles[location.x][location.y]),
                 continue;
 
             if (!bottomTiles[location.x][location.y].isBOMB()){
                 topTiles[location.x][location.y].add(bottomTiles[location.x][location.y], BorderLayout.CENTER);
+                topTiles[location.x][location.y].setReleased(true);
                 if (bottomTiles[location.x][location.y].isEmpty()){
                     revealAdjacent(topTiles[location.x][location.y].getAdjacent(), topTiles, bottomTiles);
                 }
@@ -112,12 +81,13 @@ public class TopTile extends JPanel {
     }
 
     public void released(TopTile[][] topTiles, BottomTile [][] bottomTiles){
-//        this.setVisible(false);
-        topTiles[ROW][COLUMN].add(bottomTiles[ROW][COLUMN], BorderLayout.CENTER);
+        this.setReleased(true);
+        this.add(bottomTiles[ROW][COLUMN], BorderLayout.CENTER);
+        this.revalidate();
+
         if (bottomTiles[ROW][COLUMN].isEmpty()){
             revealAdjacent(topTiles[ROW][COLUMN].getAdjacent(), topTiles, bottomTiles);
         }
-
     }
 
     public boolean isFlagged() {
@@ -143,11 +113,19 @@ public class TopTile extends JPanel {
         }
     }
 
+    public int getRow() {
+        return ROW;
+    }
+
+    public int getColumn() {
+        return COLUMN;
+    }
+
     public void refreshShade(){
         SHADE = SHADE_MAP.get(SHADE);
         repaint();
     }
-    private Point[] getAdjacent(){
+    public ArrayList<Point> getAdjacent(){
         ArrayList<Point> adjacentLocation = new ArrayList<>();
         final int FIRST_ROW = 0;
         final int FIRST_COLUMN = 0;
@@ -235,9 +213,7 @@ public class TopTile extends JPanel {
             adjacentLocation.add(new Point(NEXT_ROW, NEXT_COLUMN));
 
         }
-//        for (var loc: adjacentLocation)
-//            System.out.println("Location: " + loc);
-        return adjacentLocation.toArray(new Point[adjacentLocation.size()]);
+        return adjacentLocation;
     }
     @Override
     public void paintComponent(Graphics graphics){

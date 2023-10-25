@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Tile Done fully and Bombs Placed">
+    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Clear up adjacent of empty tile added">
+      <change afterPath="$PROJECT_DIR$/assets/images/CLOSE.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/START_GAME_BACKGROUND.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hs_err_pid17680.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameComponents/DifficultyListner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/DifficultyPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/MainPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Panels/StartPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UiComponents/GameButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_11_23_PM_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UiComponents/TopTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/TopTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,20 +55,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MAIN" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -76,7 +86,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696425127902</updated>
-      <workItem from="1696425130114" duration="83766000" />
+      <workItem from="1696425130114" duration="85747000" />
+      <workItem from="1697050511748" duration="1043000" />
+      <workItem from="1697441589940" duration="2636000" />
+      <workItem from="1697566924330" duration="2119000" />
+      <workItem from="1697963026653" duration="18236000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1696425742947</created>
@@ -127,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696799905649</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Clear up adjacent of empty tile added">
+      <created>1697047247906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697047247907</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,14 +174,15 @@
     <MESSAGE value="Face, Time and Flag Panel Refactored, Moves and Bombs Added." />
     <MESSAGE value="Timer fully functional and Game Board half done" />
     <MESSAGE value="Tile Done fully and Bombs Placed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tile Done fully and Bombs Placed" />
+    <MESSAGE value="Clear up adjacent of empty tile added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clear up adjacent of empty tile added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>98</line>
+          <line>67</line>
           <properties class="UiComponents.TopTile" method="revealAdjacent">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -169,27 +191,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>99</line>
+          <line>68</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>100</line>
+          <line>69</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>103</line>
+          <line>72</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>105</line>
+          <line>75</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>106</line>
+          <line>76</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
