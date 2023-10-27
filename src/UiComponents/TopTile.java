@@ -1,5 +1,6 @@
 package UiComponents;
 
+import GameComponents.GameAudio;
 import GameComponents.GameDifficulty;
 
 import javax.swing.*;
@@ -70,7 +71,7 @@ public class TopTile extends JPanel {
             if (topTiles[location.x][location.y].isReleased()) // topTiles[location.x][location.y], bottomTiles[location.x][location.y]),
                 continue;
 
-            if (!bottomTiles[location.x][location.y].isBOMB()){
+            if (!bottomTiles[location.x][location.y].isBOMB() && !topTiles[location.x][location.y].isFlagged()){
                 topTiles[location.x][location.y].add(bottomTiles[location.x][location.y], BorderLayout.CENTER);
                 topTiles[location.x][location.y].setReleased(true);
                 if (bottomTiles[location.x][location.y].isEmpty()){
@@ -86,6 +87,7 @@ public class TopTile extends JPanel {
         this.revalidate();
 
         if (bottomTiles[ROW][COLUMN].isEmpty()){
+            GameAudio.firstClick();
             revealAdjacent(topTiles[ROW][COLUMN].getAdjacent(), topTiles, bottomTiles);
         }
     }
@@ -95,6 +97,15 @@ public class TopTile extends JPanel {
     }
 
     public void setFlagged(boolean FLAGGED) {
+        if(FLAGGED)
+            GameAudio.flagAdded();
+        else
+            GameAudio.flagRemoved();
+
+        this.FLAGGED = FLAGGED;
+        repaint();
+    }
+    public void setFlaggedQuiet(boolean FLAGGED) {
         this.FLAGGED = FLAGGED;
         repaint();
     }

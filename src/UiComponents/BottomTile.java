@@ -67,6 +67,10 @@ public class BottomTile extends JPanel {
 
     }
 
+    public int getAdjacentBomb() {
+        return ADJACENT_BOMB;
+    }
+
     public void refreshLabel() {
         if (BOMB)
             return;

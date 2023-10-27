@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class Clock implements ActionListener {
     private int elapsedTime_millisecond = 0 , seconds = 0, minutes = 0, hour = 0;
     private final JLabel TIME_LABEL;
+    private final Timer timer;
     private boolean minute_bound_updated = false, hour_bound_updated = false;
     private final static int ONE_HOUR_IN_MILLISECOND, ONE_MINUTE_IN_MILLISECOND, ONE_SECOND_IN_MILLISECOND;
     static {
@@ -17,8 +18,11 @@ public class Clock implements ActionListener {
 
     public Clock(JLabel time_label){
         this.TIME_LABEL = time_label;
-        Timer timer = new Timer(ONE_SECOND_IN_MILLISECOND, this);
+        timer = new Timer(ONE_SECOND_IN_MILLISECOND, this);
         timer.start();
+    }
+    public Timer getTimer(){
+        return timer;
     }
     private void refreshLabel(){
         String seconds_string = String.format("%02d", seconds);

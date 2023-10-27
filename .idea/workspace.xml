@@ -4,20 +4,84 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Clear up adjacent of empty tile added">
-      <change afterPath="$PROJECT_DIR$/assets/images/CLOSE.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/START_GAME_BACKGROUND.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hs_err_pid17680.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameComponents/DifficultyListner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Panels/DifficultyPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Panels/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Panels/MainPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Panels/StartPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UiComponents/GameButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_5_2023_11_23_PM_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="088147dc-2325-40c9-ac60-f5b76f3855b0" name="Changes" comment="Refactored and Navigation added">
+      <change afterPath="$PROJECT_DIR$/Flag Added.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/10.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/11.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/12.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/13.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/14.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/15.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/16.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/17.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/18.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/19.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/20.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/21.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/22.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/23.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/24.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/25.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/26.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/27.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/28.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/29.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/3.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/30.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/31.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/32.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/33.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/34.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/35.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/36.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/37.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/38.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/39.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/40.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/41.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/42.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/43.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/44.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/45.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/46.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/47.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/48.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/49.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/5.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/50.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/51.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/52.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/53.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/54.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/55.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/56.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/57.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/58.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/59.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/6.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/60.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/61.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/62.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/63.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/64.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/65.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/7.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/8.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Bomb Sounds/9.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Flag Sound/Flag Added.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Flag Sound/Flag Removed.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Sound After Failing/Sound After Failing.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Sound After Winning/Sound After Winning.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/audios/Sound After Winning/Sound of Winning.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GameComponents/GameAudio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frames/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frames/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameComponents/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameComponents/Clock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameComponents/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Panels/TimePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panels/TimePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/BottomTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UiComponents/TopTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UiComponents/TopTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +154,9 @@
       <workItem from="1697050511748" duration="1043000" />
       <workItem from="1697441589940" duration="2636000" />
       <workItem from="1697566924330" duration="2119000" />
-      <workItem from="1697963026653" duration="18236000" />
+      <workItem from="1697963026653" duration="21236000" />
+      <workItem from="1698408053379" duration="822000" />
+      <workItem from="1698428808432" duration="5200000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1696425742947</created>
@@ -148,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697047247907</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactored and Navigation added">
+      <created>1698221849372</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698221849372</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,14 +248,15 @@
     <MESSAGE value="Timer fully functional and Game Board half done" />
     <MESSAGE value="Tile Done fully and Bombs Placed" />
     <MESSAGE value="Clear up adjacent of empty tile added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clear up adjacent of empty tile added" />
+    <MESSAGE value="Refactored and Navigation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored and Navigation added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>67</line>
+          <line>68</line>
           <properties class="UiComponents.TopTile" method="revealAdjacent">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -191,27 +265,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>68</line>
+          <line>69</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>69</line>
+          <line>70</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>72</line>
+          <line>73</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>75</line>
+          <line>76</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/UiComponents/TopTile.java</url>
-          <line>76</line>
+          <line>77</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

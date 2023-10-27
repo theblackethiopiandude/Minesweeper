@@ -56,6 +56,9 @@ public class GameBoard extends JPanel implements MouseListener {
         topTiles = new TopTile[ROW][COLUMN];
         bottomTiles = new BottomTile[ROW][COLUMN];
 
+        initializeBoard(difficulty);
+    }
+    public void initializeBoard(int difficulty){
         for (int row = 0; row < ROW; row++){
             for (int column = 0; column < COLUMN; column++){
                 TopTile topTile;
@@ -127,38 +130,46 @@ public class GameBoard extends JPanel implements MouseListener {
         TopTile pressedTile = (TopTile) e.getSource();
         int row = pressedTile.getRow();
         int column = pressedTile.getColumn();
+        Point currentLocation = new Point(row, column);
 
         if (e.getButton() == MouseEvent.BUTTON1){
             if (!pressedTile.isFlagged()){
+                if (!FIRST_CLICK && !bottomTiles[row][column].isEmpty() && !bottomTiles[row][column].isBOMB())
+                    GameAudio.revealSound(bottomTiles[row][column].getAdjacentBomb());
                 if (FIRST_CLICK){
                     FIRST_CLICK = false;
                     System.out.println("First Click Done");
                     for (var flaggedLocation:FLAGGED)
-                        topTiles[flaggedLocation.x][flaggedLocation.y].setFlagged(false);
+                        topTiles[flaggedLocation.x][flaggedLocation.y].setFlaggedQuiet(false);
                     FLAGGED.clear();
                     bombsPanel.getLabel().setText("0");
                     var nonBombLocations = pressedTile.getAdjacent();
-                    nonBombLocations.add(new Point(row, column));
+                    nonBombLocations.add(currentLocation);
                     generateBomb(nonBombLocations);
                 }
+                if (bottomTiles[row][column].isBOMB()) { // where game over is going to be called
+//                    timePanel.stopTimer();
+//                    System.out.println(timePanel.getLabel().getText().split(":").length);
+                }
                 pressedTile.released(topTiles, bottomTiles);
-                REVEALED.add(new Point(row, column));
+                REVEALED.add(currentLocation);
             }
         } else if (e.getButton() == MouseEvent.BUTTON3) {
             if (!pressedTile.isFlagged()){
                 if (FLAGGED.size() < NUMBER_OF_BOMB){
                     pressedTile.setFlagged(true);
-                    FLAGGED.add(new Point(row, column));
+                    FLAGGED.add(currentLocation);
+
                     var bombs = Integer.parseInt(bombsPanel.getLabel().getText());
                     bombsPanel.getLabel().setText(String.valueOf(++bombs));
                 }
             }else {
                 pressedTile.setFlagged(false);
-                FLAGGED.remove(new Point(row, column));
+                FLAGGED.remove(currentLocation);
+
                 var bombs = Integer.parseInt(bombsPanel.getLabel().getText());
                 bombsPanel.getLabel().setText(String.valueOf(--bombs));
             }
-            System.out.println(FLAGGED.size());
         }
     }
 

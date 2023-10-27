@@ -15,6 +15,7 @@ public class TimePanel extends ImagePanel{
     private final static int ELAPSED_TIME_PANEL_ARC;
     private final static Point ELAPSED_TIME_PANEL_LOCATION;
     private final static Rectangle ELAPSED_TIME_LABEL_BOUNDS;
+    private final Clock clock;
 
     static {
         LOCATION_ON_GAME_PANEL = new Point(576, 64);
@@ -31,6 +32,9 @@ public class TimePanel extends ImagePanel{
     public TimePanel(JLabel time_label) {
         super(TIME_ICON, TIME_ICON_LOCATION, ELAPSED_TIME_PANEL_SIZE, ELAPSED_TIME_PANEL_LOCATION, ELAPSED_TIME_PANEL_ARC, time_label, ELAPSED_TIME_LABEL_BOUNDS);
         this.setBounds(LOCATION_ON_GAME_PANEL.x, LOCATION_ON_GAME_PANEL.y, ImagePanel.PANEL_SIZE.width, ImagePanel.PANEL_SIZE.height);
-        new Clock(time_label);
+        clock = new Clock(time_label);
+    }
+    public void stopTimer(){
+        clock.getTimer().stop();
     }
 }
