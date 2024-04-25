@@ -1,4 +1,4 @@
-package Panels;
+package Panels.Screens;
 
 import GameComponents.DifficultyListner;
 

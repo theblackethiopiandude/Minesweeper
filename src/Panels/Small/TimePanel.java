@@ -1,4 +1,4 @@
-package Panels;
+package Panels.Small;
 
 import GameComponents.Clock;
 import UiComponents.ImagePanel;

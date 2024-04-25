@@ -1,7 +1,12 @@
-package Panels;
+package Panels.Screens;
 
 import GameComponents.GameBoard;
-import UiComponents.FacePanel;
+import Panels.Medium.SettingPanel;
+import Panels.Small.BombsPanel;
+import Panels.Small.FlagPanel;
+import Panels.Small.MovesPanel;
+import Panels.Small.TimePanel;
+import Panels.Small.FacePanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +20,7 @@ public class GamePanel extends JPanel{
         this.setBackground(BACKGROUND_COLOR);
         this.setPreferredSize(SCREEN_SIZE);
 
-
+        SettingPanel settingPanel = new SettingPanel(this);
         FacePanel facePanel = new FacePanel();
         TimePanel timePanel = new TimePanel(new JLabel("000"));
         FlagPanel flagPanel = new FlagPanel(new JLabel("25"));
@@ -28,7 +33,11 @@ public class GamePanel extends JPanel{
 //        bombsPanel.getLabel().setText(movesPanel.getLabel().getText());
         bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
         facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
+//        timePanel.setVisible(false);
 
+        settingPanel.setBounds(281,0, 219, 442);
+
+//        this.add(settingPanel);
         this.add(facePanel);
         this.add(timePanel);
         this.add(flagPanel);

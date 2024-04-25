@@ -1,11 +1,11 @@
 package GameComponents;
 
-import Panels.BombsPanel;
-import Panels.FlagPanel;
-import Panels.MovesPanel;
-import Panels.TimePanel;
+import Panels.Small.BombsPanel;
+import Panels.Small.FlagPanel;
+import Panels.Small.MovesPanel;
+import Panels.Small.TimePanel;
 import UiComponents.BottomTile;
-import UiComponents.FacePanel;
+import Panels.Small.FacePanel;
 import UiComponents.TopTile;
 
 import javax.swing.*;

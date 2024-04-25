@@ -4,7 +4,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
-
 public abstract class GameAudio {
     private static final File FLAG_ADDED, FLAG_REMOVED;
     private static final File FIRST_CLICK;

@@ -1,6 +1,6 @@
 package Frames;
 
-import Panels.*;
+import Panels.Screens.MainPanel;
 
 
 import javax.swing.*;

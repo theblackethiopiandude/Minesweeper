@@ -1,4 +1,4 @@
-package Panels;
+package Panels.Small;
 
 import UiComponents.TextPanel;
 

@@ -1,6 +1,6 @@
 package GameComponents;
 
-import Panels.GamePanel;
+import Panels.Screens.GamePanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;

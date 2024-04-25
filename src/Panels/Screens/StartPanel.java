@@ -1,5 +1,6 @@
-package Panels;
+package Panels.Screens;
 
+import Panels.Medium.DifficultyPanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;

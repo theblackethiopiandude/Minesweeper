@@ -1,4 +1,4 @@
-package UiComponents;
+package Panels.Small;
 
 import javax.swing.*;
 import java.awt.*;
