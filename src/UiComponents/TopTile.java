@@ -87,7 +87,6 @@ public class TopTile extends JPanel {
         this.revalidate();
 
         if (bottomTiles[ROW][COLUMN].isEmpty()){
-            GameAudio.firstClick();
             revealAdjacent(topTiles[ROW][COLUMN].getAdjacent(), topTiles, bottomTiles);
         }
     }
