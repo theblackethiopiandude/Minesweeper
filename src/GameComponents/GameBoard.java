@@ -134,11 +134,11 @@ public class GameBoard extends JPanel implements MouseListener {
 
         if (e.getButton() == MouseEvent.BUTTON1){
             if (!pressedTile.isFlagged()){
-                if (!FIRST_CLICK && !bottomTiles[row][column].isEmpty() && !bottomTiles[row][column].isBOMB())
+                if (!FIRST_CLICK && !bottomTiles[row][column].isEmpty() && !bottomTiles[row][column].isBOMB() && !topTiles[row][column].isReleased())
                     GameAudio.revealSound(bottomTiles[row][column].getAdjacentBomb());
                 if (FIRST_CLICK){
                     FIRST_CLICK = false;
-                    System.out.println("First Click Done");
+                    System.out.println("First Click Done"); // todo: remove this
                     for (var flaggedLocation:FLAGGED)
                         topTiles[flaggedLocation.x][flaggedLocation.y].setFlaggedQuiet(false);
                     FLAGGED.clear();
@@ -147,10 +147,12 @@ public class GameBoard extends JPanel implements MouseListener {
                     nonBombLocations.add(currentLocation);
                     generateBomb(nonBombLocations);
                 }
-                if (bottomTiles[row][column].isBOMB()) { // where game over is going to be called
+                if (bottomTiles[row][column].isBOMB()) { // todo: where game over is going to be called
 //                    timePanel.stopTimer();
 //                    System.out.println(timePanel.getLabel().getText().split(":").length);
                 }
+                if (!pressedTile.isReleased() && bottomTiles[row][column].isEmpty())
+                    GameAudio.firstClick();
                 pressedTile.released(topTiles, bottomTiles);
                 REVEALED.add(currentLocation);
             }
