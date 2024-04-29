@@ -1,10 +1,10 @@
 package GameComponents;
 
 import Panels.Screens.GamePanel;
+import Panels.Screens.MainPanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,10 +13,14 @@ public class DifficultyListner implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        mainPanel.remove(mainPanel.getComponent(0));
+        mainPanel.remove(MainPanel.navigationStack.pop());
         mainPanel.revalidate();
+        mainPanel.repaint();
+        var gamePanel = GamePanel.getInstance();
+        gamePanel.setDifficulty(((GameButton) e.getSource()).getDifficulty());
 
-        mainPanel.add(new GamePanel(((GameButton) e.getSource()).difficulty), BorderLayout.CENTER);
+        gamePanel.setBounds(MainPanel.FULL_SCREEN);
+        mainPanel.add(gamePanel, 1);
     }
 
     @Override

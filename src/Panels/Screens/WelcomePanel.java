@@ -8,20 +8,23 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class StartPanel extends JPanel implements MouseListener {
+public class WelcomePanel extends JPanel implements MouseListener {
     private final static Image BACKGROUND_IMAGE;
     static {
         BACKGROUND_IMAGE = new ImageIcon("assets/images/START_GAME_BACKGROUND.PNG").getImage();
     }
-
+    private static WelcomePanel instance = null;
+    public static WelcomePanel getInstance(){
+        if (instance == null)
+            instance = new WelcomePanel();
+        return instance;
+    }
     private final GameButton startGame, loadGame;
     private final JLabel welcome;
     private final DifficultyPanel difficultyPanel;
-    public StartPanel(){
-        Dimension SCREEN_SIZE = new Dimension(700, 442);
-        this.setPreferredSize(SCREEN_SIZE);
+    private WelcomePanel(){
         this.setLayout(null);
-
+        this.setBounds(MainPanel.FULL_SCREEN);
         Color welcomeTextColor = new Color(0x000000);
         Font welcomeTextFont = new Font("Roboto", Font.PLAIN, 40);
         Dimension welcomeTextSize = new Dimension(230, 37);
@@ -70,6 +73,8 @@ public class StartPanel extends JPanel implements MouseListener {
         if (e.getSource() == startGame){
             welcome.setBounds(welcome.getX(), 30, welcome.getWidth(), welcome.getHeight());
             difficultyPanel.setVisible(true);
+        } else if (e.getSource() == loadGame) {
+            
         }
     }
 

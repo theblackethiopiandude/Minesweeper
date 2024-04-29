@@ -1,16 +1,34 @@
 package Panels.Screens;
 
+import Frames.GameFrame;
 import GameComponents.DifficultyListner;
+import GameComponents.NavigationStack;
+import Panels.Medium.SettingPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MainPanel extends JPanel {
-    public MainPanel(){
+    private static MainPanel instance = null;
+    public static MainPanel getInstance(){
+        if (instance == null)
+            instance = new MainPanel();
+        return instance;
+    }
+    public static NavigationStack<JPanel> navigationStack = new NavigationStack<>();
+    public static Rectangle FULL_SCREEN = new Rectangle(new Point(0,0), GameFrame.SCREEN_SIZE);
+    private MainPanel(){
         this.setLayout(null);
-        this.setLayout(new BorderLayout());
+        this.setPreferredSize(GameFrame.SCREEN_SIZE);
 
-        this.add(new StartPanel(), BorderLayout.CENTER);
+        var welcomePanel = WelcomePanel.getInstance();
+        var settingsPanel = SettingPanel.getInstance();
+
+        navigationStack.push(settingsPanel);
+        navigationStack.push(welcomePanel);
+
+        this.add(welcomePanel);
+        this.add(settingsPanel, 0);
 
         DifficultyListner.mainPanel = this;
     }
