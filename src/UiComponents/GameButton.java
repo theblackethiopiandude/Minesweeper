@@ -11,11 +11,23 @@ public class GameButton extends JButton implements MouseListener {
     static {
         BACKGROUND_COLOR = new Color(0x400E03);
     }
-    private final String buttonText;
     private final int borderRadius;
-    public final int difficulty;
+    private  String buttonText;
+    private int difficulty;
+    private ImageIcon buttonImage, normalImage, hoveredImage;
+    private Point imageLocation;
+    private boolean isImageButton = false;
 
-
+    public GameButton(ImageIcon buttonImage, ImageIcon hoveredImage, Point imageLocation, Dimension size, int borderRadius) {
+        this.buttonImage = buttonImage;
+        this.normalImage = buttonImage;
+        this.hoveredImage = hoveredImage;
+        this.imageLocation = imageLocation;
+        this.setPreferredSize(size);
+        this.borderRadius = borderRadius;
+        this.addMouseListener(this);
+        isImageButton = true;
+    }
     public GameButton(String buttonText, Font buttonTextFont, Point buttonTextLocation, Dimension size, int borderRadius, int difficulty) {
         this.buttonText = buttonText;
         this.borderRadius = borderRadius;
@@ -33,6 +45,11 @@ public class GameButton extends JButton implements MouseListener {
          this(buttonText, buttonTextFont, buttonTextLocation, size, borderRadius, -1);
          this.setBackground(backgroundColor);
      }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
     @Override
     public void paintComponent(Graphics graphics){
         Graphics2D graphics2D = (Graphics2D) graphics;
@@ -44,9 +61,11 @@ public class GameButton extends JButton implements MouseListener {
         graphics2D.fillRoundRect(0,0, this.getWidth(), this.getHeight(), borderRadius, borderRadius);
 
         graphics2D.setPaint(Color.WHITE);
-//        graphics2D.setFont(buttonTextFont);
-//        graphics2D.drawString(buttonText, buttonTextLocation.x, buttonTextLocation.y);
-        graphics2D.drawString(buttonText, getInsets().left, graphics.getFontMetrics().getMaxAscent() + getInsets().top);
+
+        if (isImageButton)
+            graphics2D.drawImage(buttonImage.getImage(), imageLocation.x, imageLocation.y, null);
+        else
+            graphics2D.drawString(buttonText, getInsets().left, graphics.getFontMetrics().getMaxAscent() + getInsets().top);
 
     }
     @Override
@@ -61,21 +80,33 @@ public class GameButton extends JButton implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (!isImageButton)
+            this.setBackground(this.getBackground().darker());
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        if (!isImageButton)
+            this.setBackground(this.getBackground().brighter());
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        this.setBackground(this.getBackground().brighter());
+        if (isImageButton) {
+            buttonImage = hoveredImage;
+            this.repaint();
+        }
+        else
+            this.setBackground(this.getBackground().brighter());
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        this.setBackground(this.getBackground().darker());
+        if (isImageButton) {
+            buttonImage = normalImage;
+            this.repaint();
+        }
+        else
+            this.setBackground(this.getBackground().darker());
     }
 }

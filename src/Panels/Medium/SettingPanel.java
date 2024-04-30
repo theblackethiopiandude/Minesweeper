@@ -1,244 +1,171 @@
 package Panels.Medium;
 
+import Frames.GameFrame;
 import Panels.Screens.GamePanel;
-import UiComponents.CloseButton;
+import Panels.Screens.MainPanel;
+import Panels.Screens.WelcomePanel;
+import UiComponents.GameButton;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class SettingPanel extends JPanel {
-    private final JPanel container;
-    public SettingPanel(JPanel container){
-        this.container = container;
-        Dimension SettingPanelSize = new Dimension(219, 442);
-        Color BackgroundColor = new Color(0x592B1B);
+public class SettingPanel extends JPanel implements MouseListener, ActionListener {
+    private static SettingPanel instance = null;
+    public static SettingPanel getInstance(){
+        if (instance == null)
+            instance = new SettingPanel();
+        return instance;
+    }
 
-        ImageIcon closeIcon = new ImageIcon("assets/images/CLOSE.PNG");
-        Point closeIconLocation = new Point(203, 61);
-        Dimension closeIconSize = new Dimension(10, 10);
+    private final GameButton closeButton;
+    private final JLabel save, restart, difficulty, exit;
+    private final Timer timer;
 
-        Font TextFont = new Font("Roboto", Font.PLAIN, 12);
-        this.setPreferredSize(SettingPanelSize);
-        this.setBackground(BackgroundColor);
+    private boolean easeIn = false;
+    private SettingPanel(){
+        Color backgroundColor = new Color(0x592B1B);
+
+
+        this.setBounds(GameFrame.SCREEN_SIZE.width,0, 219, 442);
+        this.setBackground(backgroundColor);
         this.setLayout(null);
+        this.setVisible(false);
 
-        CloseButton close = new CloseButton();
-        JLabel save = new JLabel("SAVE");
-        JLabel restart = new JLabel("RESTART");
-        JLabel difficulty = new JLabel("DIFFICULTY");
-        JLabel exit = new JLabel("EXIT");
+        int EASE_TIME = 2;
+        timer = new Timer(EASE_TIME, this);
 
-        close.setBackground(BackgroundColor);
+        closeButton = new GameButton(new ImageIcon("assets/images/CLOSE_HOVERED.PNG"), new ImageIcon("assets/images/CLOSE.PNG"), new Point(6, 6), new Dimension(16, 16), 0);
+        closeButton.setBackground(backgroundColor);
 
-        save.setFont(TextFont);
-        save.setForeground(Color.WHITE);
+        save = new JLabel("SAVE");
+        restart = new JLabel("RESTART");
+        difficulty = new JLabel("DIFFICULTY");
+        exit = new JLabel("EXIT");
 
-        restart.setFont(TextFont);
-        restart.setForeground(Color.WHITE);
 
-        difficulty.setFont(TextFont);
-        difficulty.setForeground(Color.WHITE);
-
-        exit.setFont(TextFont);
-        exit.setForeground(Color.WHITE);
-
-        close.setBounds(closeIconLocation.x, closeIconLocation.y, closeIconSize.width, closeIconSize.height);
+        closeButton.setBounds(195, 57, 20, 20);
         save.setBounds(96, 93, 30, 16);
         restart.setBounds(85, 122, 60, 16);
         difficulty.setBounds(77, 151, 75, 16);
         exit.setBounds(98, 180, 30, 16);
 
-        close.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                close();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-
-        save.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                save();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mouseExited(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mouseEntered(e);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.BLACK);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.WHITE);
-            }
-        });
-
-        restart.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                restart();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mouseExited(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mouseEntered(e);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.BLACK);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.WHITE);
-            }
-        });
-
-        difficulty.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                difficulty();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mouseExited(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mouseEntered(e);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.BLACK);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.WHITE);
-            }
-        });
-
-        exit.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                exit();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                mouseExited(e);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                mouseEntered(e);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.BLACK);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                JLabel label = (JLabel) e.getSource();
-                label.setForeground(Color.WHITE);
-            }
-        });
+        Font TextFont = new Font("Roboto", Font.PLAIN, 12);
 
         JLabel name = new JLabel("Habeshan MineSweeper");
         JLabel version = new JLabel("Version 1.0.0");
-        name.setFont(new Font(TextFont.getName(), Font.PLAIN, 9));
-        version.setFont(new Font(TextFont.getName(), Font.PLAIN, 9));
 
+        name.setFont(new Font(TextFont.getName(), Font.PLAIN, 9));
         name.setForeground(new Color(0xF2B749));
+        version.setFont(new Font(TextFont.getName(), Font.PLAIN, 9));
         version.setForeground(new Color(0xF2B749));
 
-        name.setBounds(66, 347, 100, 11);
-        version.setBounds(86, 357, 60, 11);
+        name.setBounds(66, 347, 150, 11);
+        version.setBounds(86, 357, 100, 11);
 
-        this.add(close);
+        this.add(closeButton);
         this.add(save);
         this.add(restart);
         this.add(difficulty);
         this.add(exit);
 
+        for (final var component : this.getComponents()){
+            component.addMouseListener(this);
+            if (component instanceof JLabel){
+                component.setFont(TextFont);
+                component.setForeground(Color.WHITE);
+            }
+        }
         this.add(name);
         this.add(version);
 
     }
 
-    private void save(){
+    public void easeIn(){
+        easeIn = true;
+        this.setVisible(true);
+        timer.start();
 
     }
-    private void restart(){
-
+    public void easeOut(){
+        easeIn = false;
+        timer.start();
     }
-    private void difficulty(){
-
-    }
-    private void exit(){
-
-    }
-    private void close() {
-        System.out.println("in close");
+    @Override
+    public void actionPerformed(ActionEvent e) {
         var x = this.getX();
-        while (x <= GamePanel.SCREEN_SIZE.width){
-            try{
-                this.setBounds(++x, this.getY(), this.getWidth(), this.getHeight());
-                container.revalidate();
-                container.repaint();
-                Thread.sleep(4);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+        if (easeIn)
+            this.setBounds(--x,0, 219, 442);
+        else
+            this.setBounds(++x,0, 219, 442);
+
+        if(!easeIn){
+            if (x == 509)
+                GamePanel.getInstance().enableBombs();
+            else if (x == 579)
+                GamePanel.getInstance().enableTime();
+            else if (x == 668)
+                GamePanel.getInstance().enableSettings();
         }
+
+        if (x == 481 || x == 700){
+            timer.stop();
+            if (!easeIn)
+                this.setVisible(false);
+            else
+                GamePanel.getInstance().disableDynamicComponent();
+        }
+
+        MainPanel.getInstance().repaint();
+
+    }
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == closeButton)
+            easeOut();
+        else if (e.getSource() == save){
+
+        } else if (e.getSource() == restart) {
+            System.out.println("Restart");
+            easeOut();
+            this.setVisible(false);
+            GamePanel.getInstance().stopTimer();
+            MainPanel.getInstance().remove(MainPanel.navigationStack.pop());
+            MainPanel.getInstance().add(WelcomePanel.getInstance());
+            WelcomePanel.navigationStack.pop();
+            WelcomePanel.getInstance().resetWelcomeLabelLocation();
+            MainPanel.navigationStack.push(WelcomePanel.getInstance());
+            this.revalidate();
+            this.repaint();
+        } else if (e.getSource() == difficulty) {
+
+        } else if (e.getSource() == exit) {
+
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if (e.getSource() instanceof JLabel)
+            ((JLabel) e.getSource()).setForeground(Color.BLACK);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if (e.getSource() instanceof JLabel)
+            ((JLabel) e.getSource()).setForeground(Color.WHITE);
     }
 }

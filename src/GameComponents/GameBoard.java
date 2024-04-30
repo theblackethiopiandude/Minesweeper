@@ -46,6 +46,12 @@ public class GameBoard extends JPanel implements MouseListener {
         this.bombsPanel = bombsPanel;
 
         flagPanel.getLabel().setText(String.valueOf(NUMBER_OF_BOMB));
+        bombsPanel.getLabel().setText("0");
+        bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
+        movesPanel.getLabel().setText(flagPanel.getLabel().getText()); // TODO: give value to moves
+        facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
+        timePanel.startTimer();
+
         this.setLayout(new GridLayout(ROW, COLUMN));
         this.setBounds(BOARD_LOCATION.x, BOARD_LOCATION.y, BOARD_SIZE.width, BOARD_SIZE.height);
 

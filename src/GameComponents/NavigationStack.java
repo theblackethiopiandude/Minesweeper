@@ -1,5 +1,7 @@
 package GameComponents;
 
+import javax.swing.*;
+
 public class NavigationStack<T> {
    private static class Node<T>{
        T data;
@@ -28,12 +30,16 @@ public class NavigationStack<T> {
            temp.next = top;
            top = temp;
        }
+        if (value instanceof JPanel)
+            ((JPanel) value).setVisible(true);
     }
 
     public T pop(){
         if (!isEmpty()){
             T show = top.data;
-            top= top.next;
+            top = top.next;
+            if (show instanceof JPanel)
+                ((JPanel) show).setVisible(false);
             return show;
         }else {
             System.out.println("Stack is Empty");
