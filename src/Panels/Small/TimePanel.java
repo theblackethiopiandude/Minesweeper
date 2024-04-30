@@ -34,6 +34,9 @@ public class TimePanel extends ImagePanel{
         this.setBounds(LOCATION_ON_GAME_PANEL.x, LOCATION_ON_GAME_PANEL.y, ImagePanel.PANEL_SIZE.width, ImagePanel.PANEL_SIZE.height);
         clock = new Clock(time_label);
     }
+    public void startTimer(){
+        clock.startClock();
+    }
     public void stopTimer(){
         clock.getTimer().stop();
     }

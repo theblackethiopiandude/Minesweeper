@@ -36,21 +36,14 @@ public class GamePanel extends JPanel{
 
         settingsButton = new GameButton(new ImageIcon("assets/images/SETTINGS.png"), new ImageIcon("assets/images/SETTINGS.png"), new Point(3,3), new Dimension(27, 27), 15);
         facePanel = new FacePanel();
-        timePanel = new TimePanel(new JLabel("000"));
+        timePanel = new TimePanel(new JLabel("0:00"));
         flagPanel = new FlagPanel(new JLabel("25"));
         movesPanel = new MovesPanel(new JLabel("10"));
         bombsPanel = new BombsPanel(new JLabel("0"));
 
-
-
         settingsButton.setBounds(668,10,27, 27);
         settingsButton.setBackground(BACKGROUND_COLOR);
         settingsButton.addActionListener(e -> SettingPanel.getInstance().easeIn());
-
-
-        bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
-        facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
-
 
         this.add(settingsButton);
         this.add(facePanel);
@@ -82,5 +75,9 @@ public class GamePanel extends JPanel{
         this.add(gameBoard);
         this.revalidate();
         this.repaint();
+    }
+    public void stopTimer(){
+        timePanel.stopTimer();
+        timePanel.getLabel().setText("0:00");
     }
 }

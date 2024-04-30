@@ -80,12 +80,14 @@ public class GameButton extends JButton implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if (!isImageButton)
+            this.setBackground(this.getBackground().darker());
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        if (!isImageButton)
+            this.setBackground(this.getBackground().brighter());
     }
 
     @Override

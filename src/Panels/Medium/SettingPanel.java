@@ -3,6 +3,7 @@ package Panels.Medium;
 import Frames.GameFrame;
 import Panels.Screens.GamePanel;
 import Panels.Screens.MainPanel;
+import Panels.Screens.WelcomePanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;
@@ -128,7 +129,17 @@ public class SettingPanel extends JPanel implements MouseListener, ActionListene
         else if (e.getSource() == save){
 
         } else if (e.getSource() == restart) {
-
+            System.out.println("Restart");
+            easeOut();
+            this.setVisible(false);
+            GamePanel.getInstance().stopTimer();
+            MainPanel.getInstance().remove(MainPanel.navigationStack.pop());
+            MainPanel.getInstance().add(WelcomePanel.getInstance());
+            WelcomePanel.navigationStack.pop();
+            WelcomePanel.getInstance().resetWelcomeLabelLocation();
+            MainPanel.navigationStack.push(WelcomePanel.getInstance());
+            this.revalidate();
+            this.repaint();
         } else if (e.getSource() == difficulty) {
 
         } else if (e.getSource() == exit) {

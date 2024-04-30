@@ -19,7 +19,6 @@ public class Clock implements ActionListener {
     public Clock(JLabel time_label){
         this.TIME_LABEL = time_label;
         timer = new Timer(ONE_SECOND_IN_MILLISECOND, this);
-        timer.start();
     }
     public Timer getTimer(){
         return timer;
@@ -47,6 +46,10 @@ public class Clock implements ActionListener {
         }else {
             TIME_LABEL.setText(minutes_string + ":" + seconds_string);
         }
+    }
+    public void startClock(){
+        elapsedTime_millisecond = 0;
+        timer.start();
     }
     @Override
     public void actionPerformed(ActionEvent e) {

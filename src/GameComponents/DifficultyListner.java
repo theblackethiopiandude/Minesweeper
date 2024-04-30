@@ -18,6 +18,7 @@ public class DifficultyListner implements MouseListener {
         mainPanel.repaint();
         var gamePanel = GamePanel.getInstance();
         gamePanel.setDifficulty(((GameButton) e.getSource()).getDifficulty());
+        MainPanel.navigationStack.push(gamePanel);
 
         gamePanel.setBounds(MainPanel.FULL_SCREEN);
         mainPanel.add(gamePanel, 1);
@@ -40,6 +41,6 @@ public class DifficultyListner implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        
     }
 }
