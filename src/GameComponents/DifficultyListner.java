@@ -22,6 +22,9 @@ public class DifficultyListner implements MouseListener {
 
         gamePanel.setBounds(MainPanel.FULL_SCREEN);
         mainPanel.add(gamePanel, 1);
+
+        var gameButton = (GameButton) e.getSource();
+        gameButton.setBackground(gameButton.getBackground().darker());
     }
 
     @Override
