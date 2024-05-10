@@ -21,10 +21,11 @@ This project is a unique and culturally inspired version of the classic Mineswee
 - Winning Streak: Keep track of your best scores and aim to become the ultimate Minesweeper champion.
 
 ## Usage and Example
-<img width="702" alt="Screenshot 2024-05-10 at 11 27 49 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/cac2bd7d-07ec-40ae-90cc-a0af6f81fd7d">
-<img width="699" alt="Screenshot 2024-05-10 at 11 26 24 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/0338c4cf-698b-4baa-85fd-afc4dc9361ee">
 <img width="702" alt="Screenshot 2024-05-10 at 11 25 53 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/bdc6e64a-3d57-4cad-85c0-17945d56683f">
 <img width="702" alt="Screenshot 2024-05-10 at 11 25 45 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/8b9988d5-71bb-4bbb-96a1-b3b503ae999a">
+<img width="702" alt="Screenshot 2024-05-10 at 11 27 49 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/cac2bd7d-07ec-40ae-90cc-a0af6f81fd7d">
+<img width="699" alt="Screenshot 2024-05-10 at 11 26 24 AM" src="https://github.com/theblackethiopiandude/Minesweeper/assets/106034359/0338c4cf-698b-4baa-85fd-afc4dc9361ee">
+
 
 ## Prerequisites
 - Ensure you have Java installed on your system.
