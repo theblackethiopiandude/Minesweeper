@@ -32,7 +32,7 @@ This project is a unique and culturally inspired version of the classic Mineswee
 - https://www.java.com/en/download/manual.jsp
 - choose 64 bit option when downloading and install it on the default path.
 ## Installation
-- From the GitHub repository, download the "Minesweeper_Abyss_Setup.exe" file.
+- From the GitHub repository, download the "Minesweeper_Abyss_Setup.exe" file. (Currently being worked on)
 - To begin the installation procedure, double-click the file that has been downloaded.
  - To install Minesweeper Abyss on your computer, adhere to the directions displayed on the screen.
 - After the installation is finished, you may open the game from the Start menu or by double-clicking the desktop shortcut.
