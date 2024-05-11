@@ -1,5 +1,7 @@
 package Panels.Small;
 
+import Panels.Screens.MainPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,6 +32,7 @@ public class FacePanel extends JPanel{
     }
     public void setCurrentImage(ImageIcon currentImage) {
         this.currentImage = currentImage;
+        MainPanel.getInstance().repaint();
         repaint();
     }
     @Override

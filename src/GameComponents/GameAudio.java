@@ -9,6 +9,7 @@ public abstract class GameAudio {
     private static final File FIRST_CLICK;
     private static final File ONE, TWO, THREE, FOUR;
     private static final File FIVE, SIX, SEVEN, EIGHT;
+    private static Clip CURRENT_CLIP;
 
     static {
         FLAG_ADDED = new File("assets/audios/Flag Sound/Flag Added.wav");
@@ -84,5 +85,31 @@ public abstract class GameAudio {
         }catch (Exception ex){
             ex.printStackTrace();
         }
+    }
+    public static void winSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("assets/audios/Sound After Winning/Sound After Winning.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+            CURRENT_CLIP = clip;
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static void loseSound(){
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("assets/audios/Sound After Failing/Sound After Failing.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+            CURRENT_CLIP = clip;
+        }catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public static void stopAudio(){
+        if (CURRENT_CLIP != null && CURRENT_CLIP.isRunning())
+            CURRENT_CLIP.stop();
     }
 }

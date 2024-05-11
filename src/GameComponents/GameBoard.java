@@ -1,11 +1,8 @@
 package GameComponents;
 
-import Panels.Small.BombsPanel;
-import Panels.Small.FlagPanel;
-import Panels.Small.MovesPanel;
-import Panels.Small.TimePanel;
+import Panels.Screens.GamePanel;
+import Panels.Small.*;
 import UiComponents.BottomTile;
-import Panels.Small.FacePanel;
 import UiComponents.TopTile;
 
 import javax.swing.*;
@@ -16,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+
 
 public class GameBoard extends JPanel implements MouseListener {
     protected final Dimension BOARD_SIZE, TILE_SIZE;
@@ -30,6 +28,7 @@ public class GameBoard extends JPanel implements MouseListener {
     private final FlagPanel flagPanel;
     private final MovesPanel movesPanel;
     private final BombsPanel bombsPanel;
+    private int moves = 0;
     public GameBoard(int difficulty, FacePanel facePanel, TimePanel timePanel, FlagPanel flagPanel, MovesPanel movesPanel, BombsPanel bombsPanel){
         GameDifficulty gameDifficulty = new GameDifficulty(difficulty);
         BOARD_SIZE = gameDifficulty.BOARD_SIZE;
@@ -48,7 +47,7 @@ public class GameBoard extends JPanel implements MouseListener {
         flagPanel.getLabel().setText(String.valueOf(NUMBER_OF_BOMB));
         bombsPanel.getLabel().setText("0");
         bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
-        movesPanel.getLabel().setText(flagPanel.getLabel().getText()); // TODO: give value to moves
+        movesPanel.getLabel().setText(String.valueOf(moves)); // TODO: give value to moves
         facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
         timePanel.startTimer();
 
@@ -59,6 +58,7 @@ public class GameBoard extends JPanel implements MouseListener {
         REVEALED = new HashSet<>();
         FLAGGED = new HashSet<>();
 
+        TopTile.REVEALED = REVEALED;
         topTiles = new TopTile[ROW][COLUMN];
         bottomTiles = new BottomTile[ROW][COLUMN];
 
@@ -126,6 +126,14 @@ public class GameBoard extends JPanel implements MouseListener {
         }
     }
 
+    public void disableBoard() {
+        for (int row = 0; row < ROW; row++){
+            for (int column = 0; column < COLUMN; column++){
+                topTiles[row][column].removeMouseListener(this);
+            }
+        }
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -137,6 +145,7 @@ public class GameBoard extends JPanel implements MouseListener {
         int row = pressedTile.getRow();
         int column = pressedTile.getColumn();
         Point currentLocation = new Point(row, column);
+        boolean gameOver = false;
 
         if (e.getButton() == MouseEvent.BUTTON1){
             if (!pressedTile.isFlagged()){
@@ -144,7 +153,6 @@ public class GameBoard extends JPanel implements MouseListener {
                     GameAudio.revealSound(bottomTiles[row][column].getAdjacentBomb());
                 if (FIRST_CLICK){
                     FIRST_CLICK = false;
-                    System.out.println("First Click Done"); // todo: remove this
                     for (var flaggedLocation:FLAGGED)
                         topTiles[flaggedLocation.x][flaggedLocation.y].setFlaggedQuiet(false);
                     FLAGGED.clear();
@@ -154,13 +162,28 @@ public class GameBoard extends JPanel implements MouseListener {
                     generateBomb(nonBombLocations);
                 }
                 if (bottomTiles[row][column].isBOMB()) { // todo: where game over is going to be called
-//                    timePanel.stopTimer();
-//                    System.out.println(timePanel.getLabel().getText().split(":").length);
+                    timePanel.stopTimer();
+                    gameOver = true;
                 }
                 if (!pressedTile.isReleased() && bottomTiles[row][column].isEmpty())
                     GameAudio.firstClick();
                 pressedTile.released(topTiles, bottomTiles);
                 REVEALED.add(currentLocation);
+
+                if (REVEALED.size() == (ROW * COLUMN) - NUMBER_OF_BOMB) {
+                    timePanel.stopTimer();
+                    facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
+                    GameAudio.winSound();
+                    disableBoard();
+                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.WIN, timePanel.getLabel().getText(), REVEALED.size()), 0);
+                }
+                if (gameOver){
+                    facePanel.setCurrentImage(FacePanel.SAD_FACE);
+                    GameAudio.loseSound();
+                    disableBoard();
+                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.LOSE, timePanel.getLabel().getText(), REVEALED.size()), 0);
+                }
+                movesPanel.getLabel().setText(String.valueOf(++moves));
             }
         } else if (e.getButton() == MouseEvent.BUTTON3) {
             if (!pressedTile.isFlagged()){
