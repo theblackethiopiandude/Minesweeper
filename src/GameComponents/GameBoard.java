@@ -175,19 +175,19 @@ public class GameBoard extends JPanel implements MouseListener {
                     facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
                     GameAudio.winSound();
                     disableBoard();
-                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.WIN, timePanel.getLabel().getText(), REVEALED.size()), 0);
+                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.WIN, timePanel.getLabel().getText(), moves), 0);
                 }
                 if (gameOver){
                     facePanel.setCurrentImage(FacePanel.SAD_FACE);
                     GameAudio.loseSound();
                     disableBoard();
-                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.LOSE, timePanel.getLabel().getText(), REVEALED.size()), 0);
+                    GamePanel.getInstance().add(new EndGamePanel(EndGamePanel.LOSE, timePanel.getLabel().getText(), moves), 0);
                 }
                 movesPanel.getLabel().setText(String.valueOf(++moves));
             }
         } else if (e.getButton() == MouseEvent.BUTTON3) {
             if (!pressedTile.isFlagged()){
-                if (FLAGGED.size() < NUMBER_OF_BOMB){
+                if (FLAGGED.size() < NUMBER_OF_BOMB && !pressedTile.isReleased()){
                     pressedTile.setFlagged(true);
                     FLAGGED.add(currentLocation);
 
