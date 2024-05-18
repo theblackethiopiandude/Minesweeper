@@ -1,9 +1,9 @@
 
 # Habeshan Minesweeper
 
-With "Habeshan Minesweeper" an exciting take on the beloved minesweeper game, you may explore the depths of the Habeshan mines! Set off on a thrilling adventure in Habesha's deadly mines, where each step might be the difference between success and failure.
+With "Habeshan Minesweeper" an exciting take on the beloved minesweeper game, you may explore the depths of the Habeshan mines! Set off on a thrilling adventure, where each step might be the difference between success and failure.
 
-Play this clever and fascinating game of strategy .Stay away from lethal mines. Minesweeper Abyss is a compelling game for players of all ages, with beautiful graphics influenced by Habeshan settings and simple gaming principles.
+Play this clever and fascinating game of strategy .Stay away from lethal mines. Minesweeper is a compelling game for players of all ages, with beautiful graphics influenced by Habeshan settings and simple gaming principles.
 
 
 
