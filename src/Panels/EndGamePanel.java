@@ -1,4 +1,4 @@
-package Panels.Small;
+package Panels;
 
 import GameComponents.GameAudio;
 import Panels.Screens.GamePanel;

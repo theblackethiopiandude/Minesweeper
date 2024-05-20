@@ -1,4 +1,4 @@
-package Panels.Medium;
+package Panels;
 
 import GameComponents.DifficultyListner;
 import GameComponents.GameDifficulty;

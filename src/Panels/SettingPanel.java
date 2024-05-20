@@ -1,4 +1,4 @@
-package Panels.Medium;
+package Panels;
 
 import Frames.GameFrame;
 import Panels.Screens.GamePanel;

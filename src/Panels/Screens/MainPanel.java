@@ -3,7 +3,7 @@ package Panels.Screens;
 import Frames.GameFrame;
 import GameComponents.DifficultyListner;
 import GameComponents.NavigationStack;
-import Panels.Medium.SettingPanel;
+import Panels.SettingPanel;
 
 import javax.swing.*;
 import java.awt.*;

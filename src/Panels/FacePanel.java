@@ -1,4 +1,4 @@
-package Panels.Small;
+package Panels;
 
 import Panels.Screens.MainPanel;
 
