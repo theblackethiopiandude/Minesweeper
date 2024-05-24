@@ -129,7 +129,6 @@ public class SettingPanel extends JPanel implements MouseListener, ActionListene
         else if (e.getSource() == save){
 
         } else if (e.getSource() == restart) {
-            System.out.println("Restart");
             easeOut();
             this.setVisible(false);
             GamePanel.getInstance().stopTimer();
@@ -141,7 +140,12 @@ public class SettingPanel extends JPanel implements MouseListener, ActionListene
             this.revalidate();
             this.repaint();
         } else if (e.getSource() == difficulty) {
-
+            this.setVisible(false);
+            easeOut();
+            GamePanel.getInstance().stopTimer();
+            MainPanel.getInstance().remove(MainPanel.navigationStack.pop());
+            MainPanel.getInstance().add(WelcomePanel.getInstance());
+            MainPanel.navigationStack.push(WelcomePanel.getInstance());
         } else if (e.getSource() == exit) {
 
         }
