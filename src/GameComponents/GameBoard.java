@@ -23,7 +23,6 @@ public class GameBoard extends JPanel implements MouseListener {
     private boolean FIRST_CLICK = true;
     private final FacePanel facePanel;
     private final TimePanel timePanel;
-    private final FlagPanel flagPanel;
     private final MovesPanel movesPanel;
     private final BombsPanel bombsPanel;
     private int moves = 0;
@@ -38,15 +37,14 @@ public class GameBoard extends JPanel implements MouseListener {
 
         this.facePanel = facePanel;
         this.timePanel = timePanel;
-        this.flagPanel = flagPanel;
         this.movesPanel = movesPanel;
         this.bombsPanel = bombsPanel;
 
         flagPanel.getLabel().setText(String.valueOf(NUMBER_OF_BOMB));
         bombsPanel.getLabel().setText("0");
         bombsPanel.getTotalBombsLabel().setText(flagPanel.getLabel().getText());
-        movesPanel.getLabel().setText(String.valueOf(moves)); // TODO: give value to moves
-        facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
+        movesPanel.getLabel().setText(String.valueOf(moves));
+        facePanel.setCurrentImage(FacePanel.NORMAL_FACE);
         timePanel.startTimer();
 
         this.setLayout(new GridLayout(ROW, COLUMN));

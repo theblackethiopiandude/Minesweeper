@@ -2,7 +2,7 @@ package GameComponents;
 
 import java.awt.*;
 
-public class LocatonQueue {
+public class LocationQueue {
     class Node{
         private Node next;
         private Point value;

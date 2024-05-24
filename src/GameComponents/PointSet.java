@@ -20,7 +20,7 @@ public class PointSet implements Iterable<Point>{
         }
     }
     private class PointSetIterator implements Iterator<Point>{
-        LocatonQueue values = new LocatonQueue();
+        LocationQueue values = new LocationQueue();
         public PointSetIterator(){
             inorderTraverse(root);
         }

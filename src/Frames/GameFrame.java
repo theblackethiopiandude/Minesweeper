@@ -5,8 +5,7 @@ import Panels.Screens.MainPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+
 
 public class GameFrame extends JFrame{
     public static Dimension SCREEN_SIZE = new Dimension(700, 442);

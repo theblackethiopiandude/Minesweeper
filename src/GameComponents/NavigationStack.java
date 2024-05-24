@@ -46,17 +46,4 @@ public class NavigationStack<T> {
             return null;
         }
     }
-
-    public T peek(){
-        if (!isEmpty()){
-            return top.data;
-        }
-        else {
-            System.out.println("Stack is EMPTY");
-            return null;
-        }
-    }
-
-
-
 }
