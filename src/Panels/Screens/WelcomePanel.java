@@ -1,7 +1,7 @@
 package Panels.Screens;
 
 import GameComponents.NavigationStack;
-import Panels.Medium.DifficultyPanel;
+import Panels.DifficultyPanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;

@@ -1,12 +1,12 @@
 package Panels.Screens;
 
 import GameComponents.GameBoard;
-import Panels.Medium.SettingPanel;
-import Panels.Small.BombsPanel;
-import Panels.Small.FlagPanel;
-import Panels.Small.MovesPanel;
-import Panels.Small.TimePanel;
-import Panels.Small.FacePanel;
+import Panels.SettingPanel;
+import Panels.BombsPanel;
+import Panels.FlagPanel;
+import Panels.MovesPanel;
+import Panels.TimePanel;
+import Panels.FacePanel;
 import UiComponents.GameButton;
 
 import javax.swing.*;

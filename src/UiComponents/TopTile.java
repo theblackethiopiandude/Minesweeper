@@ -2,16 +2,16 @@ package UiComponents;
 
 import GameComponents.GameAudio;
 import GameComponents.GameDifficulty;
+import GameComponents.PointSet;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+
 
 public class TopTile extends JPanel {
-    public static Set<Point> REVEALED = new HashSet<>();
+    public static PointSet REVEALED = new PointSet();
     public final static Color LIGHTER_SHADE = new Color(0x73412F);
     public final static Color DARKER_SHADE = new Color(0x592B1B);
     private final static Color LIGHTER_HOVER_SHADE = new Color(0x956757);

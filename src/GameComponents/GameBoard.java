@@ -1,7 +1,7 @@
 package GameComponents;
 
+import Panels.*;
 import Panels.Screens.GamePanel;
-import Panels.Small.*;
 import UiComponents.BottomTile;
 import UiComponents.TopTile;
 
@@ -10,16 +10,14 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 
 public class GameBoard extends JPanel implements MouseListener {
     protected final Dimension BOARD_SIZE, TILE_SIZE;
     protected final Point BOARD_LOCATION;
     protected final int ROW, COLUMN, NUMBER_OF_BOMB;
-    private final Set<Point> BOMB_LOCATION, REVEALED, FLAGGED;
+    private final PointSet BOMB_LOCATION, REVEALED, FLAGGED;
     private final TopTile [][]topTiles;
     private final BottomTile [][]bottomTiles;
     private boolean FIRST_CLICK = true;
@@ -54,9 +52,9 @@ public class GameBoard extends JPanel implements MouseListener {
         this.setLayout(new GridLayout(ROW, COLUMN));
         this.setBounds(BOARD_LOCATION.x, BOARD_LOCATION.y, BOARD_SIZE.width, BOARD_SIZE.height);
 
-        BOMB_LOCATION = new HashSet<>();
-        REVEALED = new HashSet<>();
-        FLAGGED = new HashSet<>();
+        BOMB_LOCATION = new PointSet();
+        REVEALED = new PointSet();
+        FLAGGED = new PointSet();
 
         TopTile.REVEALED = REVEALED;
         topTiles = new TopTile[ROW][COLUMN];
@@ -98,23 +96,10 @@ public class GameBoard extends JPanel implements MouseListener {
     private void generateBomb(ArrayList<Point> nonBombLocations){
         for (int i = 0; i<NUMBER_OF_BOMB; i++){
             Point bombLocation = new Point(new Random().nextInt(ROW), new Random().nextInt(COLUMN));
-            if (!BOMB_LOCATION.contains(bombLocation))
-                BOMB_LOCATION.add(bombLocation);
-            else
-                --i;
-        }
-
-        for (int i = 0; i < nonBombLocations.size(); i++){
-            if (BOMB_LOCATION.contains(nonBombLocations.get(i))){
-                BOMB_LOCATION.remove(nonBombLocations.get(i));
-                Point bombLocation = new Point(new Random().nextInt(ROW), new Random().nextInt(COLUMN));
-                if (BOMB_LOCATION.contains(bombLocation)) {
-                    --i;
-                }
-                else {
-                    BOMB_LOCATION.add(bombLocation);
-                }
-            }
+            if (!nonBombLocations.contains(bombLocation))
+                if (BOMB_LOCATION.add(bombLocation))
+                    continue;
+            --i;
         }
 
         placeBomb();
@@ -153,15 +138,18 @@ public class GameBoard extends JPanel implements MouseListener {
                     GameAudio.revealSound(bottomTiles[row][column].getAdjacentBomb());
                 if (FIRST_CLICK){
                     FIRST_CLICK = false;
-                    for (var flaggedLocation:FLAGGED)
+                    for (var flaggedLocation:FLAGGED) {
+                        if (flaggedLocation == null)
+                            continue;
                         topTiles[flaggedLocation.x][flaggedLocation.y].setFlaggedQuiet(false);
+                    }
                     FLAGGED.clear();
                     bombsPanel.getLabel().setText("0");
                     var nonBombLocations = pressedTile.getAdjacent();
                     nonBombLocations.add(currentLocation);
                     generateBomb(nonBombLocations);
                 }
-                if (bottomTiles[row][column].isBOMB()) { // todo: where game over is going to be called
+                if (bottomTiles[row][column].isBOMB()) {
                     timePanel.stopTimer();
                     gameOver = true;
                 }
@@ -170,7 +158,7 @@ public class GameBoard extends JPanel implements MouseListener {
                 pressedTile.released(topTiles, bottomTiles);
                 REVEALED.add(currentLocation);
 
-                if (REVEALED.size() == (ROW * COLUMN) - NUMBER_OF_BOMB) {
+                if (!gameOver && (REVEALED.size() == (ROW * COLUMN) - NUMBER_OF_BOMB)) {
                     timePanel.stopTimer();
                     facePanel.setCurrentImage(FacePanel.HAPPY_FACE);
                     GameAudio.winSound();
